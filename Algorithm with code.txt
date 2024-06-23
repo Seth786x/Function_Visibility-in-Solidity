@@ -1,0 +1,95 @@
+### Step-by-Step Algorithm for `BaseContract`
+
+1. Initialize the Contract
+   - Set up the initial state variable `storedValue` with a value of 10.
+
+2. Function to Get Stored Value
+   - Define a function `getValue` to return the value of `storedValue`.
+
+3. Function to Calculate Sum
+   - Define a function `calculateSum` to return the sum of two input numbers `a` and `b`.
+
+4. Function to Receive Payments
+   - Define a function `receivePayment` to handle receiving Ether payments.
+
+### Detailed Algorithm
+
+1. Step 1: Initialize the Contract
+   - State Variable Initialization: 
+    
+     uint public storedValue = 10;
+   
+     - storedValue: A public state variable of type `uint` initialized to 10.
+
+2. Step 2: Function to Get Stored Value
+   - Function Definition: 
+
+     function getValue() public view returns (uint) {
+       return storedValue;
+     }
+
+     
+     - public: The function can be called externally.
+     - view: The function does not modify the state, it only reads the value.
+     - returns (uint): The function returns a value of type `uint`.
+
+3. Step 3: Function to Calculate Sum
+   - Function Definition: 
+     
+     function calculateSum(uint a, uint b) public pure returns (uint) {
+       return a + b;
+     }
+     
+     - public: The function can be called externally.
+     - pure: The function does not read or modify the state.
+     - returns (uint): The function returns a value of type `uint`.
+
+
+4. Step 4: Function to Receive Payments
+   - Function Definition: 
+    
+     function receivePayment() public payable {
+       // msg.sender and msg.value are directly used for logging purposes (optional)
+     }
+  
+     - public: The function can be called externally.
+     - payable: The function can accept Ether transfers.
+    
+### Code Implementation
+
+Here's the complete code based on the algorithm:
+
+```solidity
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.8.0 <0.9.0;
+
+contract BaseContract {
+
+  // Step 1: Initialize the contract with a state variable
+  uint public storedValue = 10;
+
+  // Step 2: Define a function to get the stored value
+  function getValue() public view returns (uint) {
+    return storedValue;
+  }
+
+  // Step 3: Define a function to calculate the sum of two numbers
+  function calculateSum(uint a, uint b) public pure returns (uint) {
+    return a + b;
+  }
+
+  // Step 4: Define a function to receive Ether payments
+  function receivePayment() public payable {
+    // msg.sender and msg.value are directly used for logging purposes (optional)
+  }
+}
+```
+
+### Summary
+
+1. State Variable Initialization: Sets up an initial value of 10 for `storedValue`.
+2. Getter Function: Allows anyone to retrieve the value of `storedValue`.
+3. Sum Calculation: Provides a utility function to calculate the sum of two numbers.
+4. Payment Function: Enables the contract to receive Ether payments.
+
+This step-by-step algorithm ensures that the contract is set up correctly, provides useful functionalities, and can handle Ether transactions.
